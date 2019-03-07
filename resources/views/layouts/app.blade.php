@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- for buttom nav bar -->
+    <link  type="text/css" href="{{URL::asset('css/styles.css')}}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">

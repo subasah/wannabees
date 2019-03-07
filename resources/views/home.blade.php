@@ -70,11 +70,16 @@ function getOpeningHours() {
     var infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(opening_hourshower);
     var today = new Date();
+    alert("ToDay: " + today);
     var day = today.getDay();
+
+
+
     service.getDetails({
             placeId: '{{ $company->place_id }}'
         },
         function(place, status) {
+            
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 textHtml = '<li class="list-group-item ' + ((day==1)?'active' : '') + '">' + place.opening_hours.weekday_text[0] + '</li>' +
                 '<li class="list-group-item ' + ((day==2)?'active' : '') + '">' + place.opening_hours.weekday_text[1] + '</li>' +
