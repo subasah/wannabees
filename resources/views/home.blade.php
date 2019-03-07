@@ -56,7 +56,7 @@ $company = Company::find(1);
 </div>
 
 <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key='MY_API_KEY'&libraries=places&callback=getOpeningHours">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuEE-lDXhyXd57q12hQqE4WsuGGx838Gk&libraries=places&callback=getOpeningHours">
 </script>
 <script type="text/javascript">
 
