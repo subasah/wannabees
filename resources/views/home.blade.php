@@ -76,13 +76,13 @@ function getOpeningHours() {
         },
         function(place, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-                textHtml = '<li class="list-group-item ' + ((day==0)?'active' : '') + '">' + place.opening_hours.weekday_text[0] + '</li>' +
-                '<li class="list-group-item ' + ((day==1)?'active' : '') + '">' + place.opening_hours.weekday_text[1] + '</li>' +
-                '<li class="list-group-item ' + ((day==2)?'active' : '') + '">' + place.opening_hours.weekday_text[2] + '</li>' +
-                '<li class="list-group-item ' + ((day==3)?'active' : '') + '">' + place.opening_hours.weekday_text[3] + '</li>' +
-                '<li class="list-group-item ' + ((day==4)?'active' : '') + '">' + place.opening_hours.weekday_text[4] + '</li>' +
-                '<li class="list-group-item ' + ((day==5)?'active' : '') + '">' + place.opening_hours.weekday_text[5] + '</li>' +
-                '<li class="list-group-item ' + ((day==6)?'active' : '') + '">' + place.opening_hours.weekday_text[6] + '</li>';
+                textHtml = '<li class="list-group-item ' + ((day==1)?'active' : '') + '">' + place.opening_hours.weekday_text[0] + '</li>' +
+                '<li class="list-group-item ' + ((day==2)?'active' : '') + '">' + place.opening_hours.weekday_text[1] + '</li>' +
+                '<li class="list-group-item ' + ((day==3)?'active' : '') + '">' + place.opening_hours.weekday_text[2] + '</li>' +
+                '<li class="list-group-item ' + ((day==4)?'active' : '') + '">' + place.opening_hours.weekday_text[3] + '</li>' +
+                '<li class="list-group-item ' + ((day==5)?'active' : '') + '">' + place.opening_hours.weekday_text[4] + '</li>' +
+                '<li class="list-group-item ' + ((day==6)?'active' : '') + '">' + place.opening_hours.weekday_text[5] + '</li>' +
+                '<li class="list-group-item ' + ((day==0)?'active' : '') + '">' + place.opening_hours.weekday_text[6] + '</li>';
                 var el = document.getElementById('opening_hourshower');
                 el.innerHTML = textHtml;
             }
