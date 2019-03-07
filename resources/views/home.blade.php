@@ -11,7 +11,7 @@ $company = Company::find(1);
        Client Details
       </div>
       <div class="card-body">
-
+        
         <h1>{{ $company->name }}</h1>
         <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -70,10 +70,7 @@ function getOpeningHours() {
     var infowindow = new google.maps.InfoWindow();
     var service = new google.maps.places.PlacesService(opening_hourshower);
     var today = new Date();
-    alert("ToDay: " + today);
     var day = today.getDay();
-
-
 
     service.getDetails({
             placeId: '{{ $company->place_id }}'
@@ -81,15 +78,25 @@ function getOpeningHours() {
         function(place, status) {
             
             if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                badgeHtml = '<span class="badge '+ ((place.opening_hours.open_now)?"badge-success":"badge-danger" ) + ' ">' + ((place.opening_hours.open_now)?"Open":"Closed" ) + '</span>';
+
                 textHtml = '<li class="list-group-item ' + ((day==1)?'active' : '') + '">' + place.opening_hours.weekday_text[0] + '</li>' +
+
                 '<li class="list-group-item ' + ((day==2)?'active' : '') + '">' + place.opening_hours.weekday_text[1] + '</li>' +
+
                 '<li class="list-group-item ' + ((day==3)?'active' : '') + '">' + place.opening_hours.weekday_text[2] + '</li>' +
+
                 '<li class="list-group-item ' + ((day==4)?'active' : '') + '">' + place.opening_hours.weekday_text[3] + '</li>' +
+
                 '<li class="list-group-item ' + ((day==5)?'active' : '') + '">' + place.opening_hours.weekday_text[4] + '</li>' +
                 '<li class="list-group-item ' + ((day==6)?'active' : '') + '">' + place.opening_hours.weekday_text[5] + '</li>' +
+
                 '<li class="list-group-item ' + ((day==0)?'active' : '') + '">' + place.opening_hours.weekday_text[6] + '</li>';
+
                 var el = document.getElementById('opening_hourshower');
                 el.innerHTML = textHtml;
+                $("li.list-group-item.active").append(badgeHtml);  
             }
         });
 }
